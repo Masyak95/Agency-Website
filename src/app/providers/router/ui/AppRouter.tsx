@@ -6,13 +6,17 @@ const AppRouter = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
-                {Object.values(routeConfig).map(({element, path})=>(
+                {Object.values(routeConfig).map(({element, path}) => (
                     <Route
-                        key={path} //ключ должен быть уникальным можно путь
+                        key={path}
                         path={path}
-                        element={element}
+                        element={(
+                            <Suspense fallback={<div>Loading...</div>}>
+                                {element}
+                            </Suspense>
+                        )}
                     />
-                ))} //нам нужен массив а не сам конфиг
+                ))}
             </Routes>
         </Suspense>
     );
