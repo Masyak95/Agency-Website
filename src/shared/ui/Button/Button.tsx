@@ -20,6 +20,7 @@ export const Button: FC<ButtonProps> = (props) => {
     } = props;
 
     return (
+        // eslint-disable-next-line react/button-has-type
         <button
             className={classNames(cls.Button, { [cls[theme]]: true }, [className])}
             {...otherProps}
