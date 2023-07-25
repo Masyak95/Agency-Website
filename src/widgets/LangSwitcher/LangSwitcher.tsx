@@ -9,6 +9,7 @@ function LanguageSwitcher() {
                 value={i18n.language}
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
             >
+                {/* eslint-disable i18next/no-literal-string */}
                 <option value="en">English</option>
                 <option value="cz">Čeština</option>
                 <option value="arm">Հայերեն</option>
