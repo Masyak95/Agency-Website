@@ -2,9 +2,9 @@ name: CI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ main ]
   pull_request:
-    branches: [ master, develop ]
+    branches: [ main ]
 jobs:
   pipeline:
     runs-on: ${{ matrix.os }}
