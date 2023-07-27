@@ -4,5 +4,7 @@
   "Main page": "Главная страница",
   "Language": "Язык",
   "About page": "О сайте",
-  "toggle": "переключатель"
+  "toggle": "переключатель",
+  "short language": "ru",
+  "language": "русский"
 }
