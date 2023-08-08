@@ -2,13 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './LangSwitcher.module.scss';
 
-enum Language {
-    EN = 'en',
-    CZ = 'cz',
-    ARM = 'arm',
-    RU = 'ru',
-}
-
 const languages = {
     en: {
         short: 'en',
@@ -36,18 +29,18 @@ export function LanguageSwitcher({ short }: LangSwitcherProps) {
     const { i18n } = useTranslation();
 
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedLanguage = e.currentTarget.value as Language;
+        const selectedLanguage = e.currentTarget.value;
         i18n.changeLanguage(selectedLanguage);
     };
 
-    const shortFlag = short ? 'short' : 'long';
+    const flagType = short ? 'short' : 'long';
 
     return (
         <div className={cls.select}>
             <select value={i18n.language} onChange={handleLanguageChange}>
                 {Object.entries(languages).map(([key, value]) => (
                     <option value={key} key={key}>
-                        {value[shortFlag]}
+                        {value[flagType]}
                     </option>
                 ))}
             </select>
