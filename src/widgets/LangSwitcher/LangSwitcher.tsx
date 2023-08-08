@@ -9,34 +9,45 @@ enum Language {
     RU = 'ru',
 }
 
+const languages = {
+    en: {
+        short: 'en',
+        long: 'English',
+    },
+    cz: {
+        short: 'cz',
+        long: 'Čeština',
+    },
+    arm: {
+        short: 'arm',
+        long: 'հայերեն',
+    },
+    ru: {
+        short: 'ru',
+        long: 'Русский',
+    },
+};
+
 interface LangSwitcherProps {
     short?: boolean;
 }
 
 export function LanguageSwitcher({ short }: LangSwitcherProps) {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedLanguage = e.currentTarget.value as Language;
         i18n.changeLanguage(selectedLanguage);
     };
 
-    const getLanguageName = (language: Language) => (short
-        ? t(
-            'short language',
-            { lng: language },
-        )
-        : t(
-            'language',
-            { lng: language },
-        ));
+    const shortFlag = short ? 'short' : 'long';
 
     return (
         <div className={cls.select}>
             <select value={i18n.language} onChange={handleLanguageChange}>
-                {Object.values(Language).map((language) => (
-                    <option value={language} key={language}>
-                        {getLanguageName(language)}
+                {Object.entries(languages).map(([key, value]) => (
+                    <option value={key} key={key}>
+                        {value[shortFlag]}
                     </option>
                 ))}
             </select>
