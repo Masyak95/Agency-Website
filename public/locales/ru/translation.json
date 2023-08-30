@@ -7,5 +7,7 @@
   "toggle": "переключатель",
   "short language": "ru",
   "language": "русский",
-  "Log in": "Log in"
+  "Log in": "Log in",
+  "Enter username": "Введите логин",
+  "Enter password": "Введите пароль"
 }
